@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Michacheo - Frutos Secos de Selección</title>
+
+  <!-- Fuentes elegantes -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ----------- ESTILOS GENERALES ----------- */
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: #2c2c2c;
+      background-color: #fffaf3;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+
+    h1, h2 {
+      font-family: "Playfair Display", serif;
+      letter-spacing: 0.5px;
+      color: #4d3b24;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .btn {
+      background-color: #ab8b59;
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      display: inline-block;
+      margin: 8px;
+    }
+
+    .btn:hover {
+      background-color: #917445;
+      transform: translateY(-2px);
+    }
+
+    /* ----------- HERO ----------- */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("images/fondo-frutos-secos.png") center/cover no-repeat;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero img {
+      width: 55%;
+      max-width: 380px;
+      height: auto;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .hero p {
+      margin-top: 1.2rem;
+      font-size: 1.3rem;
+      color: #e6e6e6;
+      font-weight: 300;
+    }
+
+    .hero .btn {
+      margin-top: 2rem;
+    }
+
+    /* ----------- PRODUCTOS ----------- */
+    .productos {
+      padding: 90px 20px;
+      text-align: center;
+    }
+
+    .productos h2 {
+      color: #ab8b59;
+      margin-bottom: 1rem;
+      font-size: 2.2rem;
+    }
+
+    .productos p {
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      color: #5c4a32;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .img-protegida {
+      position: relative;
+      display: inline-block;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .img-protegida img {
+      width: 100%;
+      height: auto;
+      display: block;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .img-protegida::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: transparent;
+      z-index: 2;
+    }
+
+    .img-protegida:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+
+    /* ----------- SOBRE ----------- */
+    .sobre {
+      background-color: #f7f2ea;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .sobre h2 {
+      color: #ab8b59;
+      margin-bottom: 1rem;
+    }
+
+    .sobre p {
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      color: #4d3b24;
+    }
+
+    .grid2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .sobre img {
+      border-radius: 50%;
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .sobre img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ----------- FOOTER ----------- */
+    footer {
+      background-color: #1c1c1c;
+      color: #fff;
+      text-align: center;
+      padding: 50px 20px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #ab8b59;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ----------- BOTÓN WHATSAPP ----------- */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      z-index: 100;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .whatsapp-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: white;
+    }
+
+    /* ----------- RESPONSIVO ----------- */
+    @media (max-width: 700px) {
+      .hero img { width: 75%; }
+      .grid2 img { width: 120px; height: 120px; }
+      .productos h2, .sobre h2 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HERO -->
+  <section class="hero">
+    <img src="images/logo-blanco-sin-fondo.png" alt="Logo Michacheo" />
+    <p>Frutos secos de selección</p>
+    <div>
+      <a class="btn" href="https://www.instagram.com/michacheofrutossecos/" target="_blank">Instagram</a>
+      <a class="btn" href="https://wa.me/5492942359100" target="_blank">WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section class="productos" id="productos">
+    <h2>Nuestra selección</h2>
+    <p>Te ofrecemos frutos secos, granolas, mix de frutos, variedad de semillas seleccionadas, y una variedad de productos naturales de la mejor calidad.</p>
+    <div class="grid">
+      <div class="img-protegida"><img src="images/imagen-caju.png" alt="Castaña de Caju" /></div>
+      <div class="img-protegida"><img src="images/imagen-granola.png" alt="Granolas" /></div>
+      <div class="img-protegida"><img src="images/imagen-frutos-secos.png" alt="Mix de Frutos" /></div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <h2>Sobre Michacheo</h2>
+    <p>Seleccionamos cuidadosamente los mejores frutos secos para ofrecerte una experiencia natural, nutritiva y deliciosa. Nuestro compromiso es con la calidad y la frescura, para que cada bocado refleje lo artesanal y auténtico.</p>
+
+    <h2>Dónde encontrarnos</h2>
+    <p>Podés contactarnos por Instagram, WhatsApp o acercarte a nuestro punto de retiro en Zapala: Kiosco del Centro, Luis Monti 486.</p>
+
+    <div class="grid2">
+      <img src="images/logo-michacheo-marron.png" alt="Michacheo" />
+      <img src="images/logo-kdczapala.png" alt="Kiosco del Centro" />
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Michacheo — <a href="https://www.instagram.com/michacheofrutossecos/" target="_blank">@michacheofrutossecos</a></p>
+    <a href="http://qr.afip.gob.ar/?qr=j3I-UiIjEdhbZ8fGzInl7g,," target="_F960AFIPInfo">
+      <img height="60px" src="http://www.afip.gob.ar/images/f960/DATAWEB.jpg" border="0" alt="AFIP QR">
+    </a>
+  </footer>
+
+  <!-- BOTÓN WHATSAPP -->
+  <a class="whatsapp-btn" href="https://wa.me/5492942359100" target="_blank" aria-label="Contactar por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+      <path d="M16.003 3C9.373 3 4 8.373 4 15.003c0 2.65.858 5.093 2.315 7.085L4 29l7.152-2.295a11.88 11.88 0 004.851 1.032h.001C22.63 27.737 28 22.364 28 15.733 28 9.103 22.63 3 16.003 3zm0 22.788a10.8 10.8 0 01-5.22-1.382l-.373-.208-4.257 1.366 1.39-4.133-.244-.424a10.79 10.79 0 01-1.66-5.746c0-5.993 4.876-10.868 10.865-10.868 5.985 0 10.862 4.875 10.862 10.868 0 5.993-4.877 10.867-10.863 10.867z"/>
+    </svg>
+  </a>
+
+  <!-- 🔒 BLOQUEO DE CLIC DERECHO Y ARRASTRE -->
+  <script>
+  document.addEventListener('contextmenu', event => {
+    if (event.target.tagName === 'IMG') event.preventDefault();
+  });
+  document.querySelectorAll('img').forEach(img => {
+    img.setAttribute('draggable', 'false');
+  });
+  </script>
+</body>
+</html>
